@@ -1,0 +1,15 @@
+{
+  "name": "vendor_name/blog",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "ilya",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "smarty/smarty": "^5.0"
+  }
+}
