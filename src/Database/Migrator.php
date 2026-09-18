@@ -7,11 +7,11 @@ namespace App\Database;
 use PDO;
 use RuntimeException;
 
-final readonly class Migrator
+final class Migrator
 {
     public function __construct(
-        private PDO    $pdo,
-        private string $migrationPath
+        private readonly PDO $pdo,
+        private readonly string $migrationPath
     ) {
     }
 

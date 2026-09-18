@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">Blog article</title>
+  <desc id="description">Placeholder image for a seeded blog article</desc>
+  <rect width="1200" height="675" fill="#172033"/>
+  <circle cx="970" cy="115" r="210" fill="#293955"/>
+  <circle cx="185" cy="620" r="280" fill="#22304a"/>
+  <path d="M350 190h500v295H350z" fill="none" stroke="#79c0ff" stroke-width="16"/>
+  <path d="M410 270h380M410 337h300M410 404h340" stroke="#e6edf3" stroke-width="18" stroke-linecap="round"/>
+  <text x="600" y="575" fill="#79c0ff" font-family="Arial, sans-serif" font-size="54" font-weight="700" text-anchor="middle">PHP BLOG</text>
+</svg>
