@@ -1,29 +1,41 @@
 {extends file='layout.tpl'}
 
 {block name='content'}
-    <article>
-        <img src="{$article.image}" alt="{$article.name}">
-        <h1>{$article.name}</h1>
-        <p>{$article.description}</p>
+    <article class="article-page">
+        <a class="back-link" href="/">← На главную</a>
 
-        <p>
-            Опубликовано: <time datetime="{$article.created_at}">{$article.created_at}</time>
-            · Просмотров: {$article.view_count}
-        </p>
+        <header class="article-page__header">
+            <nav class="tag-list" aria-label="Категории статьи">
+                {foreach $article.categories as $category}
+                    <a class="tag" href="/category/{$category.id}">{$category.name}</a>
+                {/foreach}
+            </nav>
 
-        <nav aria-label="Категории статьи">
-            {foreach $article.categories as $category}
-                <a href="/category/{$category.id}">{$category.name}</a>
-            {/foreach}
-        </nav>
+            <h1>{$article.name}</h1>
+            <p class="article-page__lead">{$article.description}</p>
 
-        <p>{$article.text}</p>
+            <p class="article-meta">
+                <span>Опубликовано <time datetime="{$article.created_at}">{$article.created_at}</time></span>
+                <span>{$article.view_count} просмотров</span>
+            </p>
+        </header>
+
+        <img class="article-page__image" src="{$article.image}" alt="{$article.name}">
+
+        <div class="article-page__content">
+            <p>{$article.text}</p>
+        </div>
     </article>
 
     {if $similarArticles}
-        <section>
-            <h2>Похожие статьи</h2>
-            <div>
+        <section class="related-section">
+            <header class="section-heading">
+                <div>
+                    <span class="section-heading__label">Читайте дальше</span>
+                    <h2>Похожие статьи</h2>
+                </div>
+            </header>
+            <div class="article-grid">
                 {foreach $similarArticles as $similarArticle}
                     {include file='partials/article-card.tpl' article=$similarArticle}
                 {/foreach}

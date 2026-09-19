@@ -1,30 +1,39 @@
 {extends file='layout.tpl'}
 
 {block name='content'}
-    <h1>{$category.name}</h1>
-    <p>{$category.description}</p>
+    <header class="page-heading">
+        <a class="back-link" href="/">← Все категории</a>
+        <span class="eyebrow">Категория</span>
+        <h1>{$category.name}</h1>
+        <p>{$category.description}</p>
+    </header>
 
-    <nav aria-label="Сортировка статей">
-        Сортировать:
-        <a href="/category/{$category.id}?sort=date">по дате</a>
-        <a href="/category/{$category.id}?sort=views">по просмотрам</a>
+    <nav class="toolbar" aria-label="Сортировка статей">
+        <span class="toolbar__label">Сортировать:</span>
+        <a class="filter-link{if $sort === 'date'} filter-link--active{/if}"
+           href="/category/{$category.id}?sort=date">По дате</a>
+        <a class="filter-link{if $sort === 'views'} filter-link--active{/if}"
+           href="/category/{$category.id}?sort=views">По просмотрам</a>
     </nav>
 
-    <div>
+    <div class="article-grid">
         {foreach $articles as $article}
             {include file='partials/article-card.tpl' article=$article}
         {foreachelse}
-            <p>В этой категории пока нет статей.</p>
+            <div class="empty-state">В этой категории пока нет статей.</div>
         {/foreach}
     </div>
 
     {if $pagination.total_pages > 1}
-        <nav aria-label="Пагинация">
+        <nav class="pagination" aria-label="Пагинация">
             {for $pageNumber=1 to $pagination.total_pages}
                 {if $pageNumber === $pagination.current_page}
-                    <strong aria-current="page">{$pageNumber}</strong>
+                    <strong class="pagination__item pagination__item--active" aria-current="page">
+                        {$pageNumber}
+                    </strong>
                 {else}
-                    <a href="/category/{$category.id}?sort={$sort}&page={$pageNumber}">{$pageNumber}</a>
+                    <a class="pagination__item"
+                       href="/category/{$category.id}?sort={$sort}&page={$pageNumber}">{$pageNumber}</a>
                 {/if}
             {/for}
         </nav>
