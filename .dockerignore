@@ -1,0 +1,10 @@
+.git
+.gitignore
+.idea
+.agents
+.codex
+env/*.env
+node_modules
+vendor
+var
+npm-debug.log

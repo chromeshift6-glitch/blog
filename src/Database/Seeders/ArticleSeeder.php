@@ -174,6 +174,7 @@ final class ArticleSeeder implements SeederInterface
                 image = :updated_image,
                 description = :updated_description,
                 text = :updated_text,
+                view_count = :updated_view_count,
                 created_at = :updated_created_at,
                 updated_at = :updated_updated_at'
         );
@@ -193,6 +194,7 @@ final class ArticleSeeder implements SeederInterface
             'updated_image' => self::IMAGE,
             'updated_description' => $article['description'],
             'updated_text' => $article['text'],
+            'updated_view_count' => $article['view_count'],
             'updated_created_at' => $article['created_at'],
             'updated_updated_at' => $article['created_at'],
         ]);

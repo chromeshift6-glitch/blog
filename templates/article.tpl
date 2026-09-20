@@ -15,8 +15,8 @@
             <p class="article-page__lead">{$article.description}</p>
 
             <p class="article-meta">
-                <span>Опубликовано <time datetime="{$article.created_at}">{$article.created_at}</time></span>
-                <span>{$article.view_count} просмотров</span>
+                <span>Опубликовано <time datetime="{$article.created_at}">{$article.created_at|format_date}</time></span>
+                <span>{$article.view_count|views_label}</span>
             </p>
         </header>
 

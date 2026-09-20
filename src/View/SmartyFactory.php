@@ -33,6 +33,14 @@ final class SmartyFactory
         $smarty->setCompileDir($compileDirectory);
         $smarty->setCacheDir($cacheDirectory);
         $smarty->setEscapeHtml(true);
+        $smarty->registerPlugin('modifier', 'format_date', [
+            TemplateModifiers::class,
+            'formatDate',
+        ]);
+        $smarty->registerPlugin('modifier', 'views_label', [
+            TemplateModifiers::class,
+            'viewsLabel',
+        ]);
 
         return $smarty;
     }
